@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- head & meta data -->
+	<%- include('partials/head'); %>
+
+	<body>
+		<!-- navigation -->
+		<%- include('partials/nav'); %>
+
+		<!-- BEGIN: Contact Us Section -->
+		<main class="pos-center">
+			<!-- h1 title comes from middleware-->
+			<h1><%= title %> of HelpUsRecycle</h1>
+			<h2>Address</h2>
+			<p>
+				<b>HelpUsRecycle GmbH</b><br />
+				PET House<br />
+				Flaschen Str 15-25<br />
+				14057 Berlin<br />
+				Germany
+			</p>
+
+			<h2>Phone</h2>
+			<p>
+				Mo - Fr: 9:00 - 16:00 CET <br /><br />
+				0800 15 25 08 12<br />
+				<i>(free of charge from any German landline or mobile phone)</i>
+			</p>
+
+			<h2>Email</h2>
+			<p>info@helpusrecycle.com</p>
+
+			<h2>Media Queries</h2>
+			<p>media@helpusrecycle.com</p>
+
+			<button
+				class="solid_button"
+				type="button"
+				onclick="window.location.href='/account'"
+			>
+				<span>Help us recycle</span>
+			</button>
+		</main>
+		<!-- END: Contact Us Section -->
+
+		<!-- footer -->
+		<%- include('partials/footer'); %>
+
+		<!-- Javascript - only for this page -->
+	</body>
+</html>

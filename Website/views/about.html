@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- head & meta data -->
+	<%- include('partials/head'); %>
+
+	<body>
+		<!-- navigation -->
+		<%- include('partials/nav'); %>
+
+		<!-- BEGIN: About Us Section -->
+		<main class="pos-center">
+			<h1><%= title %></h1>
+			<p>
+				<img
+					src="assets/plasticbottles-nature.jpeg"
+					alt="Plastic Bottles in nature"
+					class="about"
+				/>
+				Plastic <b>waste</b> on land and sea has been directly linked with
+				<b>climate change</b>. Plastic production has exploded from
+				<b>2 million tons</b> in 1950 to <b>368 million tons</b> in 2019 and is
+				expected to grow to <b>600 million tons by 2025</b>. In Europe, almost
+				40% of plastic produced is used in packaging, followed by 20.4% in
+				Building and Construction and 9,6% Automotive. The
+				<b>average European</b> amounts for roughly
+				<b>33kg of plastic packaging</b> waste every year. International
+				research showed that in 2020 alone, the top 2 worst polluters were
+				products from Coca-Cola and PepsiCo with
+				<b>13,834 and 5,155 plastic bottles</b> found in the environment
+				respectively.
+			</p>
+
+			<p>
+				During Germany's nationwide lockdown in 2020 caused by the Covid-19
+				pandemic, an already well-established food delivery service market
+				expanded into the 10-minute grocery delivery sector. In 2020, Germans
+				spent almost
+				<b>4 billion Euros on delivery services</b> all conveniently enabled by
+				mobile technology.
+			</p>
+
+			<p>
+				Induced by the pandemic, more people were forced to stay at home. More
+				time at home led to an increased consumption of beverages and
+				respectively a surge in <b>accumulated PET bottles</b> at households.
+				More bottles at home and more deliveries brought to your house was the
+				perfect opportunity to offer <b>bottle collection</b> at households,
+				largely but not exclusively aimed at delivery drivers who were already
+				in the streets and at households. A convenient way to
+				<b>top up your income</b> and an effortless way to achieve a decluttered
+				and <b>bottle-free home</b>.
+			</p>
+
+			<button
+				class="solid_button"
+				type="button"
+				onclick="window.location.href='/account'"
+			>
+				<span>Recycle with us</span>
+			</button>
+		</main>
+		<!-- END: About Us Section -->
+
+		<!-- footer -->
+		<%- include('partials/footer'); %>
+	</body>
+</html>

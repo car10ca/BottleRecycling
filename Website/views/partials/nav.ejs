@@ -1,0 +1,70 @@
+<!-- BEGIN: HEADER SECTION -->
+<header class="header">
+	<div class="pos-center">
+		<!-- hamburger menu button for navigation -->
+		<div class="hamburger-menu-icon">
+			<span style="font-size: 30px; cursor: pointer" onclick="openNav()"
+				><i class="material-icons" style="font-size: 60px; color: #fff"
+					>menu</i
+				></span
+			>
+		</div>
+		<a href="/"
+			><img
+				src="assets/help-us-recycle-logo.png"
+				class="logo"
+				alt="Logo: HelpUsRecycle"
+		/></a>
+	</div>
+</header>
+<!-- END: HEADER SECTION -->
+
+<!-- BEGIN: NAVIGATION -->
+<nav id="curtainNav" class="overlay">
+	<!-- styled navigation -->
+
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<div class="overlay-content">
+		<!-- create & login buttons shall only be shown when not logged in -->
+		<div id="logged-out">
+			<button
+				class="solid_navbutton"
+				type="button"
+				onclick="window.location.href='account'"
+			>
+				<span>Create account</span></button
+			><br />
+			<button
+				class="outline_navbutton"
+				type="button"
+				onclick="window.location.href='account'"
+			>
+				<span>Login</span>
+			</button>
+		</div>
+		<!-- logout button shall only be displayed in case a user is logged in-->
+		<div id="logged-in">
+			<button
+				class="outline_navbutton"
+				type="button"
+				onclick="window.location.href='/logout'"
+			>
+				<span>Logout</span>
+			</button>
+		</div>
+		<a href="/">Home</a>
+		<a href="about">About</a>
+		<a href="contact">Contact</a><br />
+		<a href="profile">Profile</a>
+		<a href="give">Give</a>
+		<a href="collect">Collect</a>
+	</div>
+</nav>
+<!-- END: NAVIGATION -->
+
+<!-- success message: inform user about an interaction
+placement: it can be, that on any page a success message is logged
+-->
+<div>
+	<p class="success-message"><%= success %></p>
+</div>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include('partials/head'); %>
+
+	<body>
+		<%- include('partials/nav'); %>
+		<!-- BEGIN: TOP NAVIGATION ONLY SHOWN POST LOGIN -->
+		<div class="topnav">
+			<a href="give" class="active">Give Bottles</a>
+			<a href="collect">Collect Bottles</a>
+		</div>
+		<!-- END: TOP NAVIGATION ONLY SHOWN POST LOGIN -->
+
+		<!-- BEGIN: Give / Collect Section -->
+		<main class="pos-center">
+			<h1><%= title %></h1>
+			<p>
+				First, provide some information about the bottles and then where and
+				when they may be collected.
+			</p>
+
+			<h2 class="form">Bottle information</h2>
+			<div class="form-container">
+				<form action="post_order" method="POST" id="give_bottles">
+					<div class="row">
+						<div class="col-25"></div>
+						<div class="col-75">
+							<input type="hidden" id="latitude" name="latitude" value="">
+							<input type="hidden" id="longitude" name="longitude" value="">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label>Find your location?</label>
+						</div>
+						<div class="col-75">
+							<button type="button" class="btn-locate" id="geoloc_button">
+								<i class="fa fa-location-arrow" aria-hidden="true">&nbsp; </i>Locate me</button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label>Map</label>
+						</div>
+						<div class="col-75">&nbsp;</div>
+					</div>
+					<div class="row">
+						<div style="float: right"><%- include('partials/map'); %></div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label>How many bottles?<i class="fa fa-asterisk" style="font-size: 10px; color: #ff0000"></i></label>
+						</div>
+						<div class="col-75">&nbsp;</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="num25CentBottles" class="label-small">25 cents</label>
+						</div>
+						<div class="col-75">
+							<input type="number" id="num25CentBottles" name="num25CentBottles" min="1" max="100" placeholder="Enter quantity of 25 cent bottles" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="num15CentBottles" class="label-small">15 cents</label>
+						</div>
+						<div class="col-75">
+							<input type="number" id="num15CentBottles" name="num15CentBottles" min="1" max="100" placeholder="Enter quantity of 15 cent bottles" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label>Bags included?<i class="fa fa-asterisk" style="font-size: 10px; color: #ff0000"></i></label>
+						</div>
+						<div class="col-75">
+							<div class="col-25">
+								<label for="yes" class="label-small">Yes:</label>
+								<input type="radio" id="yes" name="bagIncluded" value="yes" required>
+							</div>
+							<div class="col-25">
+								<label for="no" class="label-small">No:</label><input type="radio" id="no" name="bagIncluded" value="no">
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="cashIncentive">Cash incentive</label>
+						</div>
+						<div class="col-75">
+							<select id="cashIncentive" name="cashIncentive">
+								<option value="zero">&euro;0</option>
+								<option value="one">&euro;1</option>
+								<option value="two">&euro;2</option>
+								<option value="three">&euro;3</option>
+								<option value="four">&euro;4</option>
+								<option value="five">&euro;5</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="notes">Notes:</label>
+						</div>
+						<div class="col-75">
+							<textarea id="notes" name="notes" placeholder="Is there anything noteworthy about the bottles?" style="height: 120px"></textarea>
+						</div>
+					</div>
+					<div class="row">
+						<h2 class="form" style="margin-left: -20px">Collection location</h2>
+						<p style="margin-left: -20px">
+							Where can the bottles be collected?
+						</p>
+					</div>
+
+					<div class="row">
+						<div class="col-25">
+							<label for="street">Street<i class="fa fa-asterisk" style="font-size: 10px; color: #ff0000"></i></label>
+						</div>
+						<div class="col-75">
+							<input
+								type="text"
+								id="street"
+								name="street"
+								placeholder="Enter street..."
+								required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="streetNr">Street Nr.<i class="fa fa-asterisk" style="font-size: 10px; color: #ff0000"></i></label>
+						</div>
+						<div class="col-75">
+							<input type="text" id="streetNr" name="streetNr" placeholder="Enter postcode..." required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="extra">Extra</label>
+						</div>
+						<div class="col-75">
+							<input type="text" id="extra" name="extra" placeholder="Eg. Floor, doorbell name, lift, etc.">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="postcode">Postcode<i class="fa fa-asterisk" style="font-size: 10px; color: #ff0000"></i></label>
+						</div>
+						<div class="col-75">
+							<input type="number" id="postcode" name="postcode" placeholder="Enter postcode..." required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="city">City<i class="fa fa-asterisk" style="font-size: 10px; color: #ff0000"></i></label>
+						</div>
+						<div class="col-75">
+							<input type="text" id="city" name="city" placeholder="Enter street..." required>
+						</div>
+					</div>
+					<div class="row">
+						<h2 class="form" style="margin-left: -20px">
+							Collection dates / times
+						</h2>
+						<p style="margin-left: -20px">When may the bottles be collected?</p>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="collectionDate">Date<i class="fa fa-asterisk" style="font-size: 10px; color: #ff0000"></i></label>
+						</div>
+						<div class="col-75">
+							<input type="date" id="collectionDate" name="collectionDate" required>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="collectionTime">Time<i class="fa fa-asterisk" style="font-size: 10px; color: #ff0000"></i></label>
+							<input id="collectionTime">
+						</div>
+						<div class="col-75">
+							<select id="timeframe" name="timeframe">
+								<option value="7to9">07:00 - 09:00</option>
+								<option value="9to11">09:00 - 11:00</option>
+								<option value="11to13">11:00 - 13:00</option>
+								<option value="13to15">13:00 - 15:00</option>
+								<option value="15to17">15:00 - 17:00</option>
+								<option value="17to19">17:00 - 19:00</option>
+								<option value="19to21">19:00 - 21:00</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-25">
+							<p style="margin-left: -20px">
+								<a href="javascript:void(0);" onclick="formReset();"><i class="fa fa-trash-o" aria-hidden="true">&nbsp;</i>Clear form</a>
+							</p>
+						</div>
+						<div class="col-75"></div>
+					</div>
+
+					<div class="row">
+						<input type="submit" value="Submit">
+					</div>
+				</form>
+			</div>
+		</main>
+		<!-- script for maps -->
+		<script src="scripts/map_give.js"></script>
+
+		<%- include('partials/footer'); %>
+
+		<!-- Clear the form -->
+		<script>
+			function formReset() {
+				document.getElementById("give_bottles").reset();
+			}
+		</script>
+	</body>
+</html>

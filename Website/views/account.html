@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- head & meta data -->
+	<%- include('partials/head'); %>
+	<body>
+
+		<!-- header & navigation -->
+		<%- include('partials/nav'); %>
+
+    <!-- BEGIN: Account Section -->
+	<div class="pos-center">
+		
+		<!-- h1 title comes from middleware-->
+		<h1><%= title %></h1>
+		
+		<p>Use any of your existing credentials to continue.</p>
+    
+    <div class="form-container">	
+      <h2 class="form" style="margin-left:-20px;">Create an account</h2>
+      <form action='create_account' method="POST">
+        <div class="row">
+          <div class="col-25"> <label for="display_name">Display name</label> </div>
+          <div class="col-75"> <input type="text" name="display_name" id="display_name" placeholder="Display name"></div>
+        </div>
+        <div class="row">
+          <div class="col-25"> <label for="email">Email</label> </div>
+          <div class="col-75"> <input type="email" name="email" id="email" placeholder="one@two.com"></div>
+        </div>
+        <div class="row">
+          <div class="col-25"> <label for="password">Password</label> </div>
+          <div class="col-75"> <input type="password" name="password" id="password" placeholder="Password"> </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Create">
+        </div>
+
+      </form>
+      <h2 class="form" style="margin-left:-20px;">Login</h2>
+      <form action='login_account' method="POST">
+        <div class="row">
+          <div class="col-25"> <label for="email">Email</label> </div>
+          <div class="col-75"> <input type="email" name="email" placeholder="one@two.com"> </div>
+        </div>
+        <div class="row">
+          <div class="col-25"> <label for="password">Password</label> </div>
+          <div class="col-75"> <input type="password" name="password" placeholder="Password"> </div>
+        </div>
+        <div class="row">
+          <input type="submit" value="Login">
+        </div>
+
+      </form>
+    </div>
+     <!--Login via Social --> 
+    <p>
+      <a href="https://www.facebook.com/login" class="fb btn"><i class="fa fa-facebook fa-fw"></i> Continue with Facebook</a>
+      <a href="https://appleid.apple.com/" class="apple btn"><i class="fa fa-apple fa-fw"></i> Continue with Apple</a>
+      <a href="https://account.google.com" class="google btn"><i class="fa fa-google fa-fw"></i> Continue with Google</a>  
+      <a href="https://account.microsoft.com" class="microsoft btn"><i class="fa fa-windows"></i>  Continue with Microsoft</a>     
+    </p>
+	  
+	</div>  
+<!-- END: Account Section -->   
+
+
+
+
+		<!-- footer -->
+		<%- include('partials/footer'); %>
+
+		<!-- Javascript - only for this page -->
+	</body>
+</html>

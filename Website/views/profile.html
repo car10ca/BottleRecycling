@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- head & meta data -->
+	<%- include('partials/head'); %>
+
+	<body>
+		<!-- navigation -->
+		<%- include('partials/nav'); %>
+
+		<!-- BEGIN: TOP NAVIGATION ONLY SHOWN POST LOGIN -->
+		<div class="topnav">
+			<a href="give">Give Bottles</a>
+			<a href="collect">Collect Bottles</a>
+		</div>
+		<!-- END: TOP NAVIGATION ONLY SHOWN POST LOGIN -->
+
+		<main class="pos-center">
+			<!-- maps -->
+			<!-- BEGIN: Give / Collect Section -->
+			<!-- h1 title comes from middleware-->
+			<h1><%= title %></h1>
+
+			<p>
+				Create an ad and give bottles for recycling or browse through our list
+				of bottles to collect?
+			</p>
+
+			<div class="give-collect-container">
+				<a href="collect"><img
+						src="assets/img-collect.png"
+						alt="img: collect bottles"
+						class="img-center"></a>
+				<div class="btn-center">
+					<button
+						class="solid_button"
+						type="button"
+						onclick="window.location.href='/collect'">
+						<span>Collect Bottles</span>
+					</button>
+				</div>
+				<br><br>
+
+        <% if (orders_collector.length > 0) { %>
+          <h2>Orders to collect:</h2>
+          <% for (let order of orders_collector) { %>
+
+            <h3><%= order.User_Name %></h3>
+            <p><%= order.Location %></p>
+            <form action="order_details" method="GET">
+              <input type="hidden" name="orderid" value="<%= order.orderid %>">
+              <input type="submit" value="See Details">
+            </form>
+          <% } %>
+
+        <% } %>
+        
+			</div>
+
+      
+			<div class="give-collect-container">
+				<a href="give"><img
+						src="assets/img-give.png"
+						alt="img: give bottles"
+						class="img-center"></a>
+				<div class="btn-center">
+					<button
+						class="solid_button"
+						type="button"
+						onclick="window.location.href='/give'">
+						<span>Give Bottles</span>
+					</button>
+				</div>
+				<br><br>
+
+        <% if (orders_giver.length > 0) { %>
+          <h2>My Orders:</h2>
+
+          <% for (let i = 0; i < orders_giver.length; ++i) {
+              let order = orders_giver[i];
+          %>
+            <h3>Order#<%= i %></h3>
+            <p><%= order.Location %></p>
+            <form action="complete_order" method="GET">
+              <input type="hidden" name="orderid" value="<%= order.orderid %>">
+              <input type="submit" value="Complete/Remove order">
+            </form>
+          <% } %>
+
+        <% } %>
+        
+			</div>
+
+			<!-- END: Give / Collect Section -->
+		</main>
+
+		<!-- footer -->
+		<%- include('partials/footer'); %>
+	</body>
+</html>

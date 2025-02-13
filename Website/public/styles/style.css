@@ -1,0 +1,850 @@
+/* --------------------------------<<< GENERIC: h1, h2, etc, p, a >>>------------------------------------ */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	color: #333;
+	font-size: 18px;
+
+	/* remove extra margin */
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow-x: hidden;
+	background-color: #fff;
+	overflow-x: hidden;
+}
+
+h1 {
+	font-size: 2.2em;
+	padding: 0 0 0 20px;
+	font-weight: 700;
+	color: #416a59;
+}
+
+h2 {
+	font-size: 1.2em;
+	padding: 0 0 0 20px;
+	font-weight: 500;
+	color: #39395f;
+}
+
+h2.form {
+	font-size: 1.6em;
+	padding: 0 0 0 20px;
+	font-weight: 500;
+	color: #416a59;
+}
+
+h3 {
+	font-size: 1.3em;
+	padding: 0 0 0 20px;
+	font-weight: 500;
+	color: #39395f;
+}
+
+p {
+	padding: 0 10px 0 20px;
+	font-weight: 400;
+	line-height: 1.5;
+}
+
+/* styles for links */
+a:link {
+	color: #4194d0;
+	text-decoration: none;
+	font-weight: 400;
+}
+
+a:visited {
+	color: #3399cc;
+}
+
+a:hover {
+	color: #4194d0;
+	text-decoration: underline;
+}
+
+a:active {
+	color: #4194d0;
+}
+
+/* back to top button */
+#topBtn {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	right: 30px;
+	z-index: 99;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	background-color: #a8c15d;
+	color: white;
+	cursor: pointer;
+	padding: 15px;
+	border-radius: 4px;
+}
+
+#topBtn:hover {
+	background-color: #345446;
+}
+
+/* on larger screens, keep elements positioned in the center of the screen and not on the left */
+div.pos-center {
+	max-width: 900px;
+	margin: auto;
+}
+
+/* same as above, for when semantic tag is used instead of div */
+.pos-center {
+	max-width: 900px;
+	margin: auto;
+}
+
+/* Smooth scrolling */
+html {
+	scroll-behavior: smooth;
+}
+
+/* Accessibility: Disable smooth scrolling when "prefers-reduced-motion" is enabled */
+@media all and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+/* --------------------------------<<< NAVIGATION: curtain menu >>>------------------------------------ */
+
+/* hamburger menu icon for navigation */
+.hamburger-menu-icon {
+	float: right;
+	margin-top: 130px;
+}
+
+.overlay {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 100;
+	top: 0;
+	left: 0;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.9);
+	overflow-x: hidden;
+	transition: 0.5s;
+}
+
+.overlay-content {
+	position: relative;
+	top: 25%;
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+}
+
+.overlay a {
+	padding: 8px;
+	text-decoration: none;
+	font-size: 36px;
+	color: #818181;
+	display: block;
+	transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+	color: #fff;
+}
+
+.overlay .closebtn {
+	position: absolute;
+	top: 20px;
+	right: 45px;
+	font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+	.overlay a {
+		font-size: 20px;
+	}
+	.overlay .closebtn {
+		font-size: 40px;
+		top: 15px;
+		right: 35px;
+	}
+}
+
+/* buttons inside curtain menu */
+.solid_navbutton {
+	background-color: #4194d0;
+	border: none;
+	color: #fff;
+	padding: 15px 30px 15px 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 22px;
+
+	cursor: pointer;
+	border-radius: 30px;
+	width: 230px;
+}
+
+.solid_navbutton a {
+	color: white;
+	text-align: center;
+	text-decoration: none;
+}
+
+.solid_navbutton a:hover {
+	color: #fff;
+}
+
+.solid_navbutton a:active {
+	color: #fff;
+	text-decoration: underline;
+}
+.solid_navbutton a:visited {
+	color: #fff;
+	text-decoration: underline;
+}
+
+.outline_navbutton {
+	background: transparent;
+	border: 2px solid #4194d0;
+	color: #4194d0;
+	padding: 15px 30px 15px 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 22px;
+	margin: 10px 20px;
+	cursor: pointer;
+	border-radius: 30px;
+	width: 230px;
+}
+
+.outline_navbutton a {
+	color: #4194d0;
+	text-align: center;
+	text-decoration: none;
+}
+
+.outline_navbutton a:hover {
+	color: #4194d0;
+}
+
+.outline_navbutton a:active {
+	color: #4194d0;
+}
+.outline_navbutton a:visited {
+	color: #4194d0;
+}
+
+/* animated button - fixed width */
+.solid_button {
+	border-radius: 30px;
+	background-color: #4194d0;
+	border: none;
+	color: #ffffff;
+	text-align: center;
+	font-size: 20px;
+	padding: 15px;
+	width: 350px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin-bottom: 30px;
+}
+
+.solid_button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.solid_button span:after {
+	content: "\00bb";
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+.solid_button:hover span {
+	padding-right: 25px;
+}
+
+.solid_button:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+/* --------------------------------<<< HEADER (top, green) >>>------------------------------------ */
+
+.header {
+	background-color: #a8c15d;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	height: max(4vw, 250px);
+}
+
+.logo {
+	max-width: 900px;
+	margin: auto;
+	padding-left: 20px;
+}
+
+/* --------------------------------<<< FOOTER >>>------------------------------------ */
+.footer-large {
+	background-color: #8796a0;
+	padding-top: 20px;
+	padding-bottom: 30px;
+	height: max(4vw, 240px);
+}
+
+/* logo and links split into two divs that float next to each other */
+.footer-column {
+	float: left;
+	padding: 10px;
+}
+
+.left {
+	width: 25%;
+}
+
+.right {
+	width: 75%;
+}
+
+ul#footer-list {
+	list-style-type: none;
+	font-weight: 300;
+	color: #fff;
+}
+
+ul#footer-list li {
+	display: inline;
+	font-size: 18px;
+}
+
+/* keep footer links white */
+a.footer:link {
+	color: #fff;
+	font-weight: 300;
+}
+a.footer:visited {
+	color: #fff;
+	font-weight: 300;
+}
+a.footer:hover {
+	color: #fff;
+	font-weight: 300;
+}
+
+/* Clear floats after the columns */
+.footer-row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+	.footer-column {
+		width: 100%;
+	}
+}
+
+.footer-small {
+	background-color: #596673;
+	padding: 20px 0 50px 0;
+	height: max(4vw, 130px);
+}
+
+.footer-small p {
+	text-align: center;
+	color: #fff;
+	font-weight: 300;
+	font-size: 16px;
+	padding: 0 0 10px 0;
+}
+
+.footer-small a:link {
+	color: #fff;
+	font-weight: 300;
+}
+
+.footer-small a:visited {
+	color: #fff;
+	font-weight: 300;
+}
+
+/* Topnav post login: Give Bottles | Collect Bottles */
+.topnav {
+	overflow: hidden;
+	background-color: #416a59;
+	margin: auto;
+	text-align: center;
+}
+
+.topnav a {
+	display: inline-block;
+	color: #fff;
+	text-align: center;
+	padding: 16px 19px;
+	text-decoration: none;
+	font-size: 25px;
+}
+
+.topnav a:hover {
+	background-color: #a8c15d;
+	color: #fff;
+}
+
+.topnav a.active {
+	background-color: #a8c15d;
+	font-weight: 700;
+}
+
+/* --------------------------------<<<<< PAGE SPECIFIC CSS  >>>>> /* -------------------------------- */
+
+/*  
+
+1. Homepage
+2. About Us
+3. Contact Us
+4. Give Collect
+5. Collect (form to filter)
+6. Give (ad creation)
+
+*/
+
+/* --------------------------------<<< 1. HOMEPAGE >>>------------------------------------ */
+
+/* Background image: plastic bottles */
+.hero-image {
+	background-image: url("../assets/plastic-bottles.jpeg");
+	background-color: #a8c15d; /* in case image fails to load */
+	height: 430px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover; /* stretch across entire screen for larger devices */
+	position: relative;
+}
+
+/* white opaque box */
+div.opaque {
+	background: rgba(255, 255, 255, 0.8);
+	padding: 10px;
+}
+
+/* Text Slide */
+
+/* Slideshow container */
+.slideshow-container {
+	position: relative;
+	background: #fff;
+	max-width: 900px;
+}
+
+.slides-background {
+	position: absolute;
+	z-index: -1;
+	color: #e8e2c6;
+}
+
+/* Slides */
+.individualSlides {
+	display: none;
+	padding: 20px 50px 20px 50px;
+	text-align: left;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	margin-top: -30px;
+	padding: 16px;
+	color: #cbcbcb;
+	font-weight: bold;
+	font-size: 45px;
+	border-radius: 0 3px 3px 0;
+	user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+	position: absolute;
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+	background-color: #416a59;
+	color: white;
+	text-decoration: none;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+	text-align: center;
+	padding: 0 0 20px 0;
+	background: #fff;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #fff;
+	border-radius: 50%;
+	border: 1px solid #39395f;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.active,
+.dot:hover {
+	background-color: #39395f;
+}
+
+/* --------------------------------<<< 2. ABOUT US >>>------------------------------------ */
+img.about {
+	float: left;
+	margin-right: 15px;
+	width: 30%;
+	border: 0;
+}
+
+/* --------------------------------<<< 3. ACCOUNT >>>------------------------------------ */
+/* add appropriate colors to fb, twitter and google buttons */
+
+/* icons are pulled in on the html page via font-awesome.css */
+input,
+.btn {
+	width: 60%;
+	padding: 12px;
+	border: none;
+	border-radius: 4px;
+	margin: 5px 0;
+	opacity: 0.85;
+	display: inline-block;
+	font-size: 17px;
+	line-height: 20px;
+	text-decoration: none; /* remove underline from anchors */
+}
+
+input:hover,
+.btn:hover {
+	opacity: 1;
+}
+
+/* make sure link colour remains white */
+a.btn {
+	color: white;
+	text-decoration: none;
+}
+
+/* set background colour for the account buttons */
+.fb {
+	background-color: #3b5998;
+	color: white;
+}
+
+.apple {
+	background-color: #000;
+	color: white;
+}
+
+.google {
+	background-color: #de5246;
+	color: white;
+}
+
+.microsoft {
+	background-color: #00a4ef;
+	color: white;
+}
+
+/* --------------------------------<<< 4. GIVE / COLLECT (landing page post login) >>>------------------------------------ */
+
+.give-collect-container {
+	padding-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+.img-center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	/* on mobile, don't allow the image to resize smaller than this width */
+	min-width: 230px;
+}
+
+.btn-center {
+	margin: 0;
+	position: absolute;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+/* --------------------------------<<< 5. COLLECT (filter form) >>>------------------------------------ */
+
+input[type="text"],
+select,
+textarea {
+	width: 100%;
+	padding: 12px;
+	background-color: #f1f1f1;
+	border: 1px solid #333;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+input[type="password"],
+select,
+textarea {
+	width: 100%;
+	padding: 12px;
+	background-color: #f1f1f1;
+	border: 1px solid #333;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+input[type="email"],
+select,
+textarea {
+	width: 100%;
+	padding: 12px;
+	background-color: #f1f1f1;
+	border: 1px solid #333;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+label {
+	font-size: 1.2em;
+	font-weight: 500;
+	color: #39395f;
+	padding: 12px 12px 12px 0;
+	display: inline-block;
+}
+
+input[type="submit"] {
+	background-color: #4194d0;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	/*float: right;*/
+	width: 100%;
+}
+
+input[type="submit"]:hover {
+	background-color: #4194d0;
+}
+
+.form-container {
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.col-25 {
+	float: left;
+	width: 25%;
+	margin-top: 6px;
+}
+
+.col-75 {
+	float: left;
+	width: 75%;
+	margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+	.col-25,
+	.col-75,
+	input[type="submit"] {
+		width: 100%;
+		margin-top: 0;
+	}
+}
+
+/* Range sldiers - bottles & income */
+
+.slidecontainer {
+	width: 100%;
+	position: relative;
+}
+
+.range_slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 15px;
+	border-radius: 5px;
+	background: #f1f1f1;
+}
+
+.range_slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #04aa6d;
+	cursor: pointer;
+}
+
+.range_slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	background: #416a59;
+	cursor: pointer;
+}
+
+/* --------------------------------<<< 6. GIVE  (bottle ad creation form) >>>------------------------------------ */
+
+input[type="number"],
+select,
+textarea {
+	width: 100%;
+	padding: 12px;
+	background-color: #f1f1f1;
+	border: 1px solid #333;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+/* for sub-labels */
+.label-small {
+	font-size: 1em;
+	font-weight: 400;
+	color: #333;
+	padding: 12px 0 12px 0;
+	display: inline-block;
+}
+
+textarea {
+	height: 150px;
+	border: 1px solid #39395f;
+	border-radius: 4px;
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+	resize: none;
+	font-weight: 300;
+}
+
+.btn-locate {
+	background: transparent;
+	border: 2px solid #4194d0;
+	color: #4194d0;
+	padding: 15px 30px 15px 30px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 22px;
+	margin: 10px 20px;
+	cursor: pointer;
+	border-radius: 30px;
+	width: 230px;
+	font-family: "Roboto", sans-serif;
+}
+
+.btn-locate a {
+	color: #4194d0;
+	text-align: center;
+	text-decoration: none;
+}
+
+.btn-locate a:hover {
+	color: #4194d0;
+}
+
+.btn-locate a:active {
+	color: #4194d0;
+}
+.btn-locate a:visited {
+	color: #4194d0;
+}
+
+/* calendar input */
+input[type="date"] {
+	width: 100%;
+	padding: 12px;
+	background-color: #f1f1f1;
+	border: 1px solid #333;
+	border-radius: 4px;
+	font-family: "Roboto", sans-serif;
+	color: #333;
+}
+
+/* for dropdowns on form */
+select {
+	font-family: "Roboto", sans-serif;
+	color: #333;
+	font-size: 16px;
+}
+
+/** ensure HTML tag strong in in all browsers with a bold fond */
+strong {
+	font-weight: bold;
+}
+
+/** 
+cookie banner 
+activate: inspector -> application -> Storage -> Session Storage -> delete Cookie
+*/
+.hidden {
+	display: none;
+}
+
+.cookie-banner_box {
+	position: fixed;
+	top: 10vh;
+	left: 10vw;
+	right: 10vw;
+	background: rgba(0, 0, 0, 0.9);
+	transition: opacity 500ms;
+	color: white;
+	text-align: center;
+	padding: 50px 20px;
+	border-radius: 8px;
+}
+
+/** 
+success message: if no message is displayed it shall collapse
+*/
+.success-message {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}

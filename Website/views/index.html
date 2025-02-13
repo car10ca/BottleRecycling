@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- head & meta data -->
+	<%- include('partials/head'); %>
+
+	<body>
+		<!-- navigation -->
+		<%- include('partials/nav'); %>
+
+		<!-- styled HMTL (below styled version is the "old") -->
+
+		<!-- BEGIN: Intro -->
+
+		<!-- bottle background image -->
+		<section class="hero-image">
+			<div class="pos-center">
+				<div class="opaque">
+					<h1><%= title %></h1>
+
+					<p>
+						<b>Give</b> your bottles to someone who will recycle them for you in
+						exchange for the deposit money.
+					</p>
+
+					<p>
+						<b>Collect</b> the bottles from someone's household and keep the
+						funds returned from recycling them.
+					</p>
+
+					<p>
+						So far our givers have recycled
+						<strong>78,976 bottles</strong> which earned our collectors
+						<strong>&euro;2000</strong>.
+					</p>
+
+					<p>
+						<button
+							class="solid_button"
+							type="button"
+							onclick="window.location.href='/account'"
+						>
+							<span>Create an account</span>
+						</button>
+					</p>
+				</div>
+			</div>
+		</section>
+		<!-- END: Intro -->
+
+		<!-- BEGIN: Text Slide "How does it work"
+		inspired by https://www.w3schools.com/howto/howto_js_quotes_slideshow.asp -->
+		<div class="pos-center">
+			<section class="slideshow-container">
+				<div class="individualSlides">
+					<h2>Sign-up to our service</h2>
+					<p>
+						<a href="account" target="_self">Create an account</a> with us using
+						any of your existing credentials with either Google, Apple, Facebook
+						or Microsoft.
+					</p>
+				</div>
+
+				<div class="individualSlides">
+					<h2>Give or Collect</h2>
+					<p>
+						Once logged in, your
+						<a href="profile" target="_self">account</a> will enable you browse
+						our site and
+						<a href="collect" target="_self">collect bottles</a> near you, or
+						create an ad to <a href="give" target="_self">give bottles</a> away.
+					</p>
+				</div>
+
+				<div class="individualSlides">
+					<h2>Recycling completed</h2>
+					<p>
+						Congratulations. You've either contributed to giving someone extra
+						income or helped ensure plastic gets recycled appropriately without
+						landing in nature.
+					</p>
+				</div>
+
+				<div>
+					<!-- Next/prev buttons -->
+					<a id="prev" class="prev">&#10094;</a>
+					<a id="next" class="next">&#10095;</a>
+				</div>
+
+				<!-- Dots/bullets/indicators -->
+				<div class="dot-container">
+					<span id="dot_1" class="dot"></span>
+					<span id="dot_2" class="dot"></span>
+					<span id="dot_3" class="dot"></span>
+				</div>
+			</section>
+		</div>
+		<!-- END: Text Slide "How does it work" -->
+
+		<!-- footer -->
+		<%- include('partials/footer'); %>
+
+		<!-- Javascript - only for this page -->
+		<script src="scripts/slider_text.js"></script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<% title = "Collect from " + order.User_Name %>
+<html>
+  <%- include('partials/head'); %>
+
+  <body>
+    <%- include('partials/nav'); %>
+    <!-- BEGIN: TOP NAVIGATION ONLY SHOWN POST LOGIN -->
+    <div class="topnav">
+      <a href="give">Give Bottles</a>
+      <a href="collect" class="active">Collect Bottles</a>
+    </div>
+    <!-- END: TOP NAVIGATION ONLY SHOWN POST LOGIN --> 	
+
+
+
+
+    <!-- BEGIN: Give / Collect Section -->
+    <main class="pos-center">
+      <h1><%= title %></h1>
+      <a href="collect">« Back to search results</a>
+
+      <h2 class="form"><%= order.User_Name %></h2>
+      <p><b>Collection: </b><%= order.Day %> <%= order.Time_Slot %></p>
+      <p><b># of €0.25 bottles: </b><%= order.Bottles_25 %></p>
+      <p><b># of €0.15 bottles: </b><%= order.Bottles_15 %></p>
+      <p><b>Total value: </b>€<%= order.Bottles_15 * 0.15 + order.Bottles_25 * 0.25 %></p>
+      <p><b>Bags included: </b><%= order.Bags ? "yes" : "no" %></p>
+      <br>
+      <p><b>Address: </b><%= order.Location %></p>
+      <p><%- include('partials/map'); %></p>
+      <form method="POST" action="accept_order">
+        <input type="hidden" value="<%= orderid %>" name="orderid">
+        <input type="submit" value="Confirm Collection">
+      </form>
+    </main>
+    <!-- script for maps -->
+    <script>
+      var longitude = <%= order.Location_lon %>;
+      var latitude = <%= order.Location_lat %>;
+    </script>
+    <script src="scripts/map_order_init.js"></script>
+
+    <%- include('partials/footer'); %>
+  </body>
+</html>
+

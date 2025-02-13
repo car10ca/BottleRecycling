@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- head & meta data -->
+	<%- include('partials/head'); %>
+
+	<body>
+		<!-- navigation -->
+		<%- include('partials/nav'); %>
+
+		<!-- BEGIN: TOP NAVIGATION ONLY SHOWN POST LOGIN -->
+		<div class="topnav">
+			<a href="give">Give Bottles</a>
+			<a href="collect" class="active">Collect Bottles</a>
+		</div>
+		<!-- END: TOP NAVIGATION ONLY SHOWN POST LOGIN -->
+
+		<!-- BEGIN: Give / Collect Section -->
+		<main class="pos-center">
+			<!-- h1 title comes from middleware-->
+			<h1><%= title %></h1>
+			<h2 class="form">Available collections:</h2>
+			<div id="collect-results"></div>
+			<p>Filter by one or more options.</p>
+
+			<h2 class="form">Filter for available collections</h2>
+			<div class="form-container">
+				<form id="collect_bottles">
+					<div class="row">
+						<div class="col-25">
+							<label for="city">City</label>
+						</div>
+						<div class="col-75">
+							<input
+								type="text"
+								id="city"
+								name="city"
+								placeholder="Enter city...">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="postcode">Postcode</label>
+						</div>
+						<div class="col-75">
+							<input
+								type="number"
+								id="postcode"
+								name="postcode"
+								placeholder="Enter postcode...">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label for="radius">Radius</label>
+						</div>
+						<div class="col-75">
+							<select id="radius" name="radius">
+								<option value="1km">1km</option>
+								<option value="3km">3km</option>
+								<option value="5km">5km</option>
+							</select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label>Map</label>
+						</div>
+						<div class="col-75">&nbsp;</div>
+					</div>
+					<div class="row">
+						<div style="float: right">
+							<%- include('partials/map'); %>
+							<script src="scripts/map_orders.js"></script>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label>Pfand</label>
+						</div>
+						<div class="col-75">
+							<div class="slidecontainer">
+								<input
+									type="range"
+									min="0.15"
+									max="9.90"
+									value="0.15"
+									step="0.15"
+									class="range_slider"
+									id="income_range">
+								<p>&euro;<span id="range_income_value"></span></p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<label># of Bottles</label>
+						</div>
+						<div class="col-75">
+							<div class="slidecontainer">
+								<input
+									type="range"
+									min="1"
+									max="100"
+									value="1"
+									step="1"
+									class="range_slider"
+									id="bottles_range">
+								<p><span id="range_bottles_value"></span> bottle(s)</p>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-25">
+							<p style="margin-left: -20px">
+								<a href="javascript:void(0);" onclick="formReset();"><i class="fa fa-trash-o" aria-hidden="true">&nbsp;</i>Clear form</a>
+							</p>
+						</div>
+						<div class="col-75"></div>
+					</div>
+				</form>
+			</div>
+		</main>
+		<!-- collect form slider -->
+		<script src="scripts/slider-value.js" async></script>
+		<!-- END: Give / Collect Section -->
+
+		<!-- footer -->
+		<%- include('partials/footer'); %>
+
+		<!-- Clear the form -->
+		<script>
+			function formReset() {
+				document.getElementById("collect_bottles").reset();
+			}
+		</script>
+	</body>
+</html>
